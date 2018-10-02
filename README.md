@@ -366,6 +366,7 @@ koje treba imati u vidu prilikom realizacije:
     - "Preoteti" opisane operacije, tj. prepisati ih tako da budu međusobno isključive,
        odnosno "umotati" ih u sopstvene istoimene operacije koje će pozivajući kod
        pozivati, a koje će obezbediti međusobno isključenje do bibliotečnih realizacija.
+       
     Iako ovo nisu jedini mogući uzroci navedenih problema, oni su najčešći. Studenti
     treba da obezbede odgovarajuća rešenja, ali tako da rešenja ne umanjuju
     konkurentnost više nego što je to potrebno. To znači da preuzimanje treba zabraniti
@@ -501,6 +502,7 @@ prekidna rutina koja je vezana za prekid događaja, a koju obezbeđuje korisnik;
 preciznije, korisnička prekidna rutina koja je vezana za isti ulaz u IVT za koji je vezan
 i događaj, treba samo da pozove ovu operaciju signal događaja koji odgovara tom
 prekidu.
+
 Kada se dogodi prekid, treba uvek vršiti preuzimanje (naravno, pod uslovom da se
 izvršavanje ove prekidne rutine nije ugnezdilo u izvršavanje nekog drugog dela sistemskog
 koda), ali tako što će se deblokirana nit koja čeka na događaj najpre smestiti u red spremnih
@@ -581,6 +583,7 @@ deterministički algoritam raspoređivanja, sinhronizacione primitive);
 3) ispravno konkurentno izvršavanje sa deljenjem vremena u slučaju nedeterminističkog
 izvršavanja (ograničen vremenski interval, sinhronizacione primitive);
 4) ispravno aktiviranje niti na prekide.
+
 Testovi koji ispituju slučajeve sa nedeterminističkim ponašanjem (ograničeni vremenski
 interval, postojanje prekida), mogu i da postepeno povećavaju opterećenje sistema (sve manji
 vremenski interval, sve češći prekidi), sve do granice do koje sistem to može da obradi.
