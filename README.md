@@ -106,9 +106,9 @@ Zahtevi u okviru ovog zadatka jesu realizacija:
 1) koncepta niti (engl. thread), uz operacije kreiranja i pokretanja niti;
 2) promene konteksta (engl. context switch) i preuzimanja (engl. preemption) i to na
 sledeće načine:
-1) eksplicitnim zahtevom same niti (sinhrono, eksplicitno preuzimanje);
-2) zbog pojave prekida (asinhrono, implicitno preuzimanje);
-3) zbog isteka dodeljenog vremena (asinhrono, implicitno preuzimanje), kao
+- eksplicitnim zahtevom same niti (sinhrono, eksplicitno preuzimanje);
+- zbog pojave prekida (asinhrono, implicitno preuzimanje);
+- zbog isteka dodeljenog vremena (asinhrono, implicitno preuzimanje), kao
 podrška deljenju vremena (engl. time sharing);
 3) koncepta standardnog semafora;
 4) koncepta događaja (zapravo binarnog semafora) na kome samo jedna nit može da čeka
