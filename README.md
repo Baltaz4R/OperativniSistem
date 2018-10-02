@@ -336,12 +336,12 @@ koje treba imati u vidu prilikom realizacije:
 2. Kada se preuzima (preusmerava) prekid iz postojećeg sistema, a to posebno važi za
     preusmeravanje periodičnog prekida sa vremenskog brojača, potrebno je obezbediti
     sledeće:
-     da se prilikom svakog prekida od vremenskog brojača pored radnji koje je student
+    - da se prilikom svakog prekida od vremenskog brojača pored radnji koje je student
        predvideo da se rade u prekidnoj rutini, obavezno obave i radnje koje sam sistem
        predviđa na periodični prekid; ovo se može jednostavno uraditi pozivom stare
        prekidne rutine (na koju je ukazivao stari vektor koji je preusmeren) iz nove
        prekidne rutine;
-     da se po završetku programa, tj. prilikom gašenja celog programa, restaurira stari
+    - da se po završetku programa, tj. prilikom gašenja celog programa, restaurira stari
        vektor, kako bi sistem nastavio da funkcioniše korektno.
 3. Potrebno je strogo voditi računa da su sve kritične sekcije samog jezgra propisno
     zaštićene od asinhronih "upada", tj. od asinhronih prekida.
@@ -355,15 +355,15 @@ koje treba imati u vidu prilikom realizacije:
     konkurentan rad, tj. ne sme se dozvoliti da jedna nit započne bibliotečnu operaciju, a
     onda dođe do preuzimanja i druga nit započne tu istu operaciju (nisu reentrant). Ovo
     posebno treba voditi računa kod sledećih bibliotečnih operacija:
-     Operacije alokacije memorije (operator new na jeziku C++), pošto one pristupaju
+    - Operacije alokacije memorije (operator new na jeziku C++), pošto one pristupaju
        strukturama podataka ugrađenog alokatora dinamičke memorije izvršnog
        okruženja jezika.
-     Ulazno/izlazne operacije, recimo operacije ispisa na konzolu (operator<< na
+    - Ulazno/izlazne operacije, recimo operacije ispisa na konzolu (operator<< na
        jeziku C++).
     Mogući pristupi rešavanju ovakvih problema jesu:
-     Obezbediti propisno međusobno isključenje na mestima u jezgru na kojima se
+    - Obezbediti propisno međusobno isključenje na mestima u jezgru na kojima se
        ovakve operacije koriste.
-     "Preoteti" opisane operacije, tj. prepisati ih tako da budu međusobno isključive,
+    - "Preoteti" opisane operacije, tj. prepisati ih tako da budu međusobno isključive,
        odnosno "umotati" ih u sopstvene istoimene operacije koje će pozivajući kod
        pozivati, a koje će obezbediti međusobno isključenje do bibliotečnih realizacija.
     Iako ovo nisu jedini mogući uzroci navedenih problema, oni su najčešći. Studenti
@@ -386,14 +386,14 @@ PCB::running->myThread->run();
 ...
 ```
 7. Prilikom testiranja i razvoja sistema obratiti pažnju na sledeće:
-     Po implementaciji svakog podmodula sistema obavezno napisati kratke testove
+    - Po implementaciji svakog podmodula sistema obavezno napisati kratke testove
        koji testiraju njegovu funkcionalnost, a tek onda, ukoliko je sve u redu, integrisati
        ga u ostatak sistema. U suprotnom može se dogoditi da se neka trivijalna greška
        propagira, pa je za njeno otkrivanje kasnije potrebno mnogostruko više vremena
        nego na samom početku.
-     Pokrenuti javne testove za različite vrednosti ulaznih parametara i pratiti
+    - Pokrenuti javne testove za različite vrednosti ulaznih parametara i pratiti
        očekivane rezultate.
-     Pre predaje obavezno isprobati svoj projekat i na računarima u laboratorijama na
+    - Pre predaje obavezno isprobati svoj projekat i na računarima u laboratorijama na
        kojima se projekat demonstrira.
 8. Obavezno proveriti verziju rešenja namenjenog za predaju kako ne bi bila predata
     pogrešna verzija.
@@ -484,19 +484,19 @@ prvi je broj ulaza za koji se generišu definicije i na osnovu kojeg makro svaki
 drugačije nazive definisanih promenljivih i funkcija, a drugi logička vrednost koja govori da li
 treba pozivati staru prekidnu rutinu (1 – treba, 0 – ne treba). Objekat i funkcija koje je
 neophodno definisati su:
- objekat tipa IVTEntry u kojem će biti sačuvani svi potrebni podaci vezani za ulaz za
+1) objekat tipa IVTEntry u kojem će biti sačuvani svi potrebni podaci vezani za ulaz za
 koji se definiše objekat;
- prekidna rutina koja svaki put kada je pozvana treba da pozove signal na događaju koji
+2) prekidna rutina koja svaki put kada je pozvana treba da pozove signal na događaju koji
 je vezan za taj ulaz; sve potrebne informacije se čuvaju u objektu tipa IVTEntry.
 Koncept događaja treba da omogući sledeće radnje:
- inicijalizaciju, zadavanjem broja ulaza u vektor tabeli (IVT) za čiji se prekid vezuje
+3) inicijalizaciju, zadavanjem broja ulaza u vektor tabeli (IVT) za čiji se prekid vezuje
 dati događaj; pri inicijalizaciji treba obaviti sve potrebne radnje, između ostalog i
 inicijalizaciju ili preusmeravanje starog vektora iz datog ulaza; smatrati da se nad
 jednim ulazom u vektor tabeli može kreirati samo jedan objekat događaja.
- operaciju wait kojom se pozivajuća nit blokira; obezbediti da samo nit koja je kreirala
+4) operaciju wait kojom se pozivajuća nit blokira; obezbediti da samo nit koja je kreirala
 događaj može na njemu i da se blokira; poziv ove operacije iz niti koja nije vlasnik
 događaja nema efekta;
- operaciju signal koja deblokira nit blokiranu na događaju i koju treba da pozove
+5) operaciju signal koja deblokira nit blokiranu na događaju i koju treba da pozove
 prekidna rutina koja je vezana za prekid događaja, a koju obezbeđuje korisnik;
 preciznije, korisnička prekidna rutina koja je vezana za isti ulaz u IVT za koji je vezan
 i događaj, treba samo da pozove ovu operaciju signal događaja koji odgovara tom
@@ -573,13 +573,13 @@ javni_test.zip.
 Tajni testovi
 
 Tajni testovi proveravaju sve aspekte navedenih zahteva, i to:
- propisno kreiranje i gašenje niti;
- ispravno konkurentno izvršavanje niti u slučaju determinističkog izvršavanja
+1) propisno kreiranje i gašenje niti;
+2) ispravno konkurentno izvršavanje niti u slučaju determinističkog izvršavanja
 (eksplicitno preuzimanje, nema prekida niti isteka vremenskog intervala,
 deterministički algoritam raspoređivanja, sinhronizacione primitive);
- ispravno konkurentno izvršavanje sa deljenjem vremena u slučaju nedeterminističkog
+3) ispravno konkurentno izvršavanje sa deljenjem vremena u slučaju nedeterminističkog
 izvršavanja (ograničen vremenski interval, sinhronizacione primitive);
- ispravno aktiviranje niti na prekide.
+4) ispravno aktiviranje niti na prekide.
 Testovi koji ispituju slučajeve sa nedeterminističkim ponašanjem (ograničeni vremenski
 interval, postojanje prekida), mogu i da postepeno povećavaju opterećenje sistema (sve manji
 vremenski interval, sve češći prekidi), sve do granice do koje sistem to može da obradi.
@@ -592,14 +592,14 @@ i dalje radi – ne pada).
 Testovi performansi
 
 Testovi performansi mogu da ispituju sledeće parametre sistema:
- režijsko vreme promene konteksta;
- režijsko vreme operacija sa semaforom;
- vreme odziva na prekid;
- broj konkurentnih niti koje se mogu pokrenuti i izvršavati dok sistem ne uđe u
+- režijsko vreme promene konteksta;
+- režijsko vreme operacija sa semaforom;
+- vreme odziva na prekid;
+- broj konkurentnih niti koje se mogu pokrenuti i izvršavati dok sistem ne uđe u
 preopterećenje;
- broj niti koje se mogu uspešno raspoređivati sa sve manjim vremenskim intervalom;
- zauzeće memorije za strukture koje realizuju PCB, semafore i događaje;
- druge vremenske i prostorne parametre i ograničenja sistema.
+- broj niti koje se mogu uspešno raspoređivati sa sve manjim vremenskim intervalom;
+- zauzeće memorije za strukture koje realizuju PCB, semafore i događaje;
+- druge vremenske i prostorne parametre i ograničenja sistema.
 
 
 ## Zaključak
