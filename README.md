@@ -124,18 +124,18 @@ kojima se čuva trag ugnježdenih poziva funkcija, kao i automatski podaci tih f
 Nit se kreira nad određenom funkcijom i kada se pokrene izvršavanje niti, novi tok
 kontrole počinje od poziva te funkcije. Dalji tok niti zavisi od sadržaja te funkcije.
 Potrebno je obezbediti sledeće operacije nad nitima:
- kreiranje niti: ova operacija samo kreira novu nit u jezgru nad određenom funkcijom,
+1) kreiranje niti: ova operacija samo kreira novu nit u jezgru nad određenom funkcijom,
 ali ne pokreće njeno izvršavanje; u slučaju da je prosleđena vrednost parametra
 timeSlice=0, kreirana niti ima neograničeni vremenski interval izvršavanja.
- pokretanje niti: ova operacija pokreće novi tok izvršavanja nad funkcijom nad kojom
+2) pokretanje niti: ova operacija pokreće novi tok izvršavanja nad funkcijom nad kojom
 je kreirana nit;
- uspavljivanje niti (engl. sleep): ova operacija suspenduje (blokira, „uspavljuje“)
+3) uspavljivanje niti (engl. sleep): ova operacija suspenduje (blokira, „uspavljuje“)
 tekuću nit za zadati vremenski period;
- eksplicitno preuzimanje (engl. dispatch).
+4) eksplicitno preuzimanje (engl. dispatch).
 Rešenje treba da obezbedi mogućnost:
- kreiranja neograničenog broja korisničkih niti (gornja granica mogućeg broja
+5) kreiranja neograničenog broja korisničkih niti (gornja granica mogućeg broja
 korisničkih niti može biti ograničena isključivo raspoloživom memorijom);
- alokacije prostora za kontrolni stek niti maksimalne veličine bar 64KB (ograničenje
+6) alokacije prostora za kontrolni stek niti maksimalne veličine bar 64KB (ograničenje
 veličine steka mora biti najmanje 64KB, a ne mora biti veće).
 
 Niti na jeziku C++
