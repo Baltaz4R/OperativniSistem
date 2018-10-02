@@ -561,6 +561,7 @@ Proizvođači su sledeći:
 bafer.
 - Jedna nit koja se aktivira na prekid sa tastature (na svaki pritisak tastera), očitava
 pritisnuti taster i znak tog tastera stavlja u bafer.
+
 Potrošač ciklično uzima znak po znak iz bafera i ispisuje ga na standardni izlaz.
 Kada se na tastaturi pritisne taster Escape, program obezbeđuje da se sve niti propisno gase,
 pri čemu se potrošač gasi tek kada isprazni ceo bafer (pre gašenja ispisuje poruku da je sve
