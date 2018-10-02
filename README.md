@@ -625,16 +625,3 @@ ispit potrebno je ponovo postaviti ažurnu verziju projektnog zadataka.
 Sajt za predaju projekta je [http://rti.etf.bg.ac.rs/domaci/index.php?servis=os1_projekat](http://rti.etf.bg.ac.rs/domaci/index.php?servis=os1_projekat)
 
 Nepoštovanje pravila za predaju projekta povlači negativne poene.
-
-
-## Zapisnik revizija
-
-### Ovaj zapisnik sadrži spisak izmena i dopuna ovog dokumenta po verzijama.
-
-### Verzija 1.
-
-Strana Izmena
-
-(^)
-
-
