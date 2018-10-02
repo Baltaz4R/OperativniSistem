@@ -103,15 +103,15 @@ strane sistema-domaćina, a zatim može, na primer, da pokrene nit nad funkcijom
 
 Cilj ovog zadatka jeste realizacija podsistema jezgra za upravljanje nitima (engl. thread).
 Zahtevi u okviru ovog zadatka jesu realizacija:
- koncepta niti (engl. thread), uz operacije kreiranja i pokretanja niti;
- promene konteksta (engl. context switch) i preuzimanja (engl. preemption) i to na
+1) koncepta niti (engl. thread), uz operacije kreiranja i pokretanja niti;
+2) promene konteksta (engl. context switch) i preuzimanja (engl. preemption) i to na
 sledeće načine:
-o eksplicitnim zahtevom same niti (sinhrono, eksplicitno preuzimanje);
-o zbog pojave prekida (asinhrono, implicitno preuzimanje);
-o zbog isteka dodeljenog vremena (asinhrono, implicitno preuzimanje), kao
+1) eksplicitnim zahtevom same niti (sinhrono, eksplicitno preuzimanje);
+2) zbog pojave prekida (asinhrono, implicitno preuzimanje);
+3) zbog isteka dodeljenog vremena (asinhrono, implicitno preuzimanje), kao
 podrška deljenju vremena (engl. time sharing);
- koncepta standardnog semafora;
- koncepta događaja (zapravo binarnog semafora) na kome samo jedna nit može da čeka
+3) koncepta standardnog semafora;
+4) koncepta događaja (zapravo binarnog semafora) na kome samo jedna nit može da čeka
 blokirana, a koji se signalizira zadatim prekidom.
 
 ### Koncept niti
