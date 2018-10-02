@@ -104,9 +104,9 @@ strane sistema-domaćina, a zatim može, na primer, da pokrene nit nad funkcijom
 Cilj ovog zadatka jeste realizacija podsistema jezgra za upravljanje nitima (engl. thread).
 Zahtevi u okviru ovog zadatka jesu realizacija:
 1) koncepta niti (engl. thread), uz operacije kreiranja i pokretanja niti;
-- promene konteksta (engl. context switch) i preuzimanja (engl. preemption) i to na
+2) promene konteksta (engl. context switch) i preuzimanja (engl. preemption) i to na
 sledeće načine:
--- eksplicitnim zahtevom same niti (sinhrono, eksplicitno preuzimanje);
+- eksplicitnim zahtevom same niti (sinhrono, eksplicitno preuzimanje);
 - zbog pojave prekida (asinhrono, implicitno preuzimanje);
 - zbog isteka dodeljenog vremena (asinhrono, implicitno preuzimanje), kao
 podrška deljenju vremena (engl. time sharing);
@@ -557,9 +557,9 @@ buffer). Proizvođači i potrošači su realizovani kao niti, a ograničeni bafe
 (struktura) sa međusobnim isključenjem i uslovnom sinhronizacijom obezbeđenim pomoću
 semafora. Podatak koji se jedinično upisuje i čita iz bafera jeste jedan znak (char).
 Proizvođači su sledeći:
- N (1≤N≤20) niti nad istim kodom koje ciklično generišu po jedan znak i stavljaju u
+- N (1≤N≤20) niti nad istim kodom koje ciklično generišu po jedan znak i stavljaju u
 bafer.
- Jedna nit koja se aktivira na prekid sa tastature (na svaki pritisak tastera), očitava
+- Jedna nit koja se aktivira na prekid sa tastature (na svaki pritisak tastera), očitava
 pritisnuti taster i znak tog tastera stavlja u bafer.
 Potrošač ciklično uzima znak po znak iz bafera i ispisuje ga na standardni izlaz.
 Kada se na tastaturi pritisne taster Escape, program obezbeđuje da se sve niti propisno gase,
